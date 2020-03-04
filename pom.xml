@@ -53,7 +53,41 @@
             </plugin>
         </plugins>
 	</build>
-
+	<profiles>
+		<profile>
+				<id>cloudhub</id>
+				<build>
+					<plugins>
+						<plugin>
+							<groupId>org.mule.tools.maven</groupId>
+							<artifactId>mule-maven-plugin</artifactId>
+							<configuration>
+								<cloudHubDeployment>
+									<muleVersion>${mule.version}</muleVersion>
+									<username>${anypoint.username}</username>
+									<password>${anypoint.password}</password>
+									<applicationName>${project.artifactId}</applicationName>
+									<environment>${cloudhub.env}</environment>
+									<region>${cloudhub.region}</region>
+									<uri>${anypoint.uri}</uri>
+									<!--<workerType>${cloudhub.workerType}</workerType>-->
+									<workers>${cloudhub.workers}</workers>
+								</cloudHubDeployment>
+							</configuration>
+							<executions>
+								<execution>
+									<id>deploy</id>
+									<phase>deploy</phase>
+									<goals>
+										<goal>deploy</goal>
+									</goals>
+								</execution>
+							</executions>
+						</plugin>
+					</plugins>
+				</build>
+			</profile>
+		</profiles>
 	<dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
