@@ -12,7 +12,7 @@ pipeline{
   stage ('Deploy to Cloudhub'){
    steps{
     withMaven(maven:'maven'){
-     bat 'mvn package deploy'
+     bat 'mvn deploy'
     }
    }
   }
