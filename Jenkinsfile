@@ -12,7 +12,9 @@ pipeline{
   stage ('Deploy to Cloudhub'){
    steps{
     withMaven(maven:'maven'){
-     bat 'mvn deploy'
+     configFileProvider([configFile(fileId: 'config_deploy', variable: 'DEPLOY_SETTINGS')]) {
+    bat 'mvn -gs $DEPLOY_SETTINGS deploy'
+}
     }
    }
   }
