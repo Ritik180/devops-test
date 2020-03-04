@@ -13,7 +13,7 @@ pipeline{
    steps{
     withMaven(maven:'maven'){
      configFileProvider([configFile(fileId: 'config_deploy', variable: 'DEPLOY_SETTINGS')]) {
-    bat 'mvn -gs $DEPLOY_SETTINGS deploy'
+    bat 'mvn clean deploy'
 }
     }
    }
