@@ -8,6 +8,7 @@ pipeline{
 				}
 				echo "$BUILD_ID"
 			}
+		}
 			stage('Bootstrap target configuration'){
 				steps{
 					
@@ -15,4 +16,4 @@ pipeline{
 			}
 		}
 	}
-}
+
