@@ -11,7 +11,9 @@ pipeline{
 		}
 			stage('Bootstrap target configuration'){
 				steps{
-					echo "stage done"
+					configFileProvider([configFile(fileId: 'DEV.properties', variable: 'DEV')]) {
+    						mvn clean deploy -DmuleDeploy -Dmaven.properties=$DEV
+					}
 				}
 			}
 		stage('Set Version'){
