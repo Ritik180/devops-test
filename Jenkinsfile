@@ -9,14 +9,5 @@ pipeline{
  			}
  		}
  	}
-  stage ('Deploy to Cloudhub'){
-   steps{
-    withMaven(maven:'maven'){
-     configFileProvider([configFile(fileId: 'config_deploy', variable: 'DEPLOY_SETTINGS')]) {
-    bat 'mvn clean deploy'
-}
-    }
-   }
-  }
  }
 }
