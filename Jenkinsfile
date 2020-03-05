@@ -14,6 +14,21 @@ pipeline{
 					echo "stage done"
 				}
 			}
+		stage('Set Version'){
+				steps{
+					echo "stage done"
+				}
+			}
+		stage('Munit Test'){
+				steps{
+					echo "stage done"
+				}
+			}
+		stage('Maven Build and Deploy to Exchange'){
+				steps{
+					echo "stage done"
+				}
+			}
 		}
 	}
 
