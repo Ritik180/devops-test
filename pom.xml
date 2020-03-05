@@ -21,6 +21,24 @@
 	<build>
 		<plugins>
 			<plugin>
+				 <groupid>org.codehaus.mojo</groupid>
+				 <artifactid>properties-maven-plugin</artifactid>
+				 <version>1.0.0</version>
+				 <executions>
+				  	<execution>
+				   		<phase>initialize</phase>
+				   	<goals>
+				   	 <goal>read-project-properties</goal>
+				   	</goals>
+				   	<configuration>
+				    		<files>
+				    			 <file>${maven.properties}</file>
+				    		</files>
+				   	</configuration>
+				  	</execution>
+				 </executions>
+			</plugin>
+			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
