@@ -11,7 +11,7 @@ pipeline{
 		}
 			stage('Bootstrap target configuration'){
 				steps{
-					
+					echo "stage done"
 				}
 			}
 		}
