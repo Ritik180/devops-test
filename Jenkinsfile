@@ -1,6 +1,5 @@
-pipeline {
-   agent any
-   node{ checkout([$class: 'GitSCM', 
+node{ 
+   checkout([$class: 'GitSCM', 
           branches: [[name: "${env.branch}"]], 
     doGenerateSubmoduleConfigurations: false, 
     extensions: [[$class: 'CleanCheckout']], 
@@ -8,11 +7,3 @@ pipeline {
     userRemoteConfigs: [[credentialsId: 'git-credentials', url: 'https://github.com/user/repo.git']]
 ])
        }
-   stages {
-      stage('Hello') {
-         steps {
-            echo "$env.branch"
-         }
-      }
-   }
-}
